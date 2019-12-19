@@ -1,0 +1,585 @@
+@import './bootstrap.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import './fonts.css';
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+::-webkit-scrollbar:hover {
+    display: block;
+}
+
+::-webkit-scrollbar{
+    width : 6px;
+    height: 5px;
+    background : transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius : 10px;
+    height: 10px;
+    background : #2f8fbb;
+}
+    
+::-webkit-scrollbar-track{
+    background  : #11012ef5;
+}
+
+.container-menu{
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+    padding: 0;
+    top: 0;
+}
+
+.navbar{
+   position: fixed;
+    height: 100px;
+    background: #fff;
+    z-index: 10;
+    width: 100%;
+}
+
+
+.fixed{
+    position: fixed;
+}
+
+.navbar-brand img{
+    width: 200px;
+}
+
+.toggleMenu{
+    position: absolute;
+    right: 20px;
+    opacity: 1;
+}
+
+.navbar-nav{
+    position: relative;
+    top: 92px;
+    width: 300px;
+    background: #fff;
+    padding: 18px;
+    transition: .4s;
+
+    box-shadow: -3px 6px 18px -8px #286da1;
+    right: -325px;
+}
+
+.toggleOpen{
+    right: -16px;
+}
+
+.nav-link{
+    color: #0a013a;
+  
+}
+
+.desc-sect{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    color: #6243ff;
+}
+
+.line{
+    height: 4px;
+    width: 110px;
+    margin-top: 10px;
+    margin-right: 7px;
+    background: linear-gradient(90deg, #6243ff 70%, #ddddda 30%)
+}
+
+.desc-contact{
+    color: #06fffb;
+}
+
+.desc-contact .line{
+    background: linear-gradient(90deg, #06fffb 70%, #696969 30%)
+}
+
+.home,
+.settings{
+    position: relative;
+    background-image: url('https://images.techhive.com/images/article/2015/12/thinkstockphotos-178629045-100609710-large-100632442-large.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+    font-size: 16px;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.home .row,
+.settings .row{
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.home-inf{
+    height: 700px;
+}
+
+.home-inf .row{
+    justify-content: flex-start;
+}
+
+.home h1,
+.home h2,
+.settings h2{
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.infrastructure, .services{
+    position: relative;
+    padding: 80px 0;
+}
+
+.infrastructure .row,
+.clients .container-carousel {
+    overflow-x: scroll;
+    transition: .4s ;
+}
+
+
+.move-carousel{
+    height: 129px;
+    width: 64px;
+    padding: 5px;
+    position: absolute;
+    background: rgba(11, 3, 99, 0.623);
+    top: 504px;
+    opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+}
+
+.move-carousel.mv-l{
+    float: left;
+    left: 0;
+    text-align: center;
+    border-radius: 0px 102px 101px 0px
+}
+
+.move-carousel.mv-l img,
+.move-carousel.mv-r img{
+    width: 45px;
+    height: 70px;
+    position: relative;
+    float: left;
+    left: 0px;
+    top: 25px;
+}
+
+.move-carousel.mv-r img{
+    float: right;
+    right: -20px;
+    left: 5px;
+}
+
+.move-carousel.mv-r{
+    float: right;
+    right: 0;
+    border-radius: 101px 0px  0px  101px
+}
+
+.row.cs{
+    transition: .3s;
+}
+.wrp-carousel{
+    transition: .3s;
+
+    white-space: nowrap;
+    padding-right: 400px;
+}
+
+.item-carousel{
+    display: inline-block;
+    vertical-align: top;
+    width: 550px;
+    margin-right: 30px;
+}
+
+.item-carousel img{
+    width: 100%;
+}
+
+.cs::-webkit-scrollbar-track{
+	border-radius: 10px;
+	background-color: transparent;
+}
+
+.cs::-webkit-scrollbar{
+    width: 1px;
+    background-color: transparent;
+    opacity: .6;
+}
+
+.cs::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+    background-color: transparent;
+    opacity: .6; 
+}
+
+.settings{
+    background-image: url('../imgs/group-9@3x.png');
+    height: 450px;
+}
+
+.settings h2{
+    text-align: right;
+}
+
+.settings p{
+    width: 70%;
+    float: right;
+}
+
+.maintenance, .alliance,.clients{
+    background: #fafafa;
+    padding: 60px 0;
+}
+
+.card{
+    background: #fafafa;
+    border: none;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.card-body{
+    padding: 0
+}
+
+.card-text{
+    padding-bottom: 25px;
+    color: #4a4a4a;
+}
+
+.alliance img{
+    width: 100%;
+}
+
+.clients{
+    height: 230px;
+    padding: 0px 0;
+}
+
+.clients img{
+    height: 158px;
+    width: auto;
+}
+
+.clients .item-carousel{
+    width: auto;
+}
+
+.container-carousel{
+    background: #fff;
+    height: 294px;
+    padding : 60px;
+    box-shadow: 0 0 17px -6px #232323;
+    bottom: -351px;
+}
+
+.clients .row-carousel{
+    white-space: nowrap;
+}
+
+.contact{
+    background: #0a013a;
+    color: #fff;
+    padding-top: 250px;
+    padding-bottom: 30px;
+}
+
+.contact-inf{
+    padding-top: 50px;
+}
+
+.contact-info{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+   /* font-family: Roboto;*/
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+}
+
+.form{
+    background: #180f4b;
+    padding: 50px 30px;
+    text-align: center;
+}
+
+.form h2{
+    text-align: left;
+    font-size: 21px;
+}
+
+.form-group{
+    margin-top: 30px;
+}
+
+label{
+    font-weight: 200;
+    float: left;
+}
+
+.form-control{
+    background: none;
+    border: none;
+    color: #fff;
+    border-bottom: 1px solid #6b6a6a;
+}
+
+.form-control:focus{
+    box-shadow: none;
+    background: none;
+    color: #fff;
+
+}
+
+.btn{
+    width: 85%;
+    margin: 0 auto;
+    border-radius: 2.5px;
+    background-color: #06fffb;
+    font-size: 18px;
+    color: #0a013a;
+    font-weight: 600;
+}
+
+.btn:hover{
+    background-color: #06fffb;
+    color: #0a013a;
+}
+
+.socials{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.socials a{
+    margin-right: 5px;
+    font-size: 12px;
+    float: right;
+    margin-top: 20px;
+    color: #fff;
+}
+
+footer{
+    background: #070226;
+    padding: 20px 0;
+    color: #fff;
+    font-size: 12px;
+}
+
+
+/*page2*/
+
+.contact.contact-inf img{
+    width: 100%;
+}
+
+.services{
+    background-image: url('../imgs/rectangle@3x.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.services h2{
+    font-size: 20px;
+}
+
+.services img{
+    width: 100%;
+}
+
+.img-service{
+    padding: 0 10px;
+}
+
+.contact-inf h2{
+    border-bottom: 1px solid #fff;
+    padding-bottom: 15px;
+}
+
+.contact-inf h2:nth-child(4){
+    border-bottom: none;
+}
+
+.link-pages{
+    font-size: 16px;
+}
+
+.socials-circle{
+     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.icons:hover{
+    color: #2f8fbb;
+    text-decoration: none;
+}
+
+.icon-facebook-with-circle{
+    color: #fff;
+    font-size:30px;
+}
+
+
+
+
+/*animations*/
+.fade-in{
+    transition: .3s;
+    animation: fadeIn both 5s ;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@media screen and (min-width:576px){
+
+    .home h1,
+    .home h2,
+    .settings h2,
+    .form h2
+    {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width:768px){
+    .settings p{
+        width: 25%;
+    }
+
+    .move-carousel{
+        opacity: 1;
+    }
+
+    .contact-inf{
+        padding: 50px 0;
+        margin-top: 30px;
+    }
+  
+    .service{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .content-service, .img-service{
+        width: 50%;
+        margin: -2px;
+    }
+
+    .content-service{
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .contact.contact-inf img{
+        width: 70%;
+    }
+
+    .socials-circle{
+        justify-content: left;
+    }
+}
+
+@media screen and (min-width:993px){
+    .navbar{
+        padding: 0 46px;
+    }
+
+    .toggleMenu{
+        opacity: 0;
+    }
+
+    .navbar-nav{
+        opacity: 0;
+        position: relative;
+        top: 0px;
+        width: auto;
+        background: #fff;
+        padding: 18px;
+        box-shadow: none;
+        right: -16px;
+    }
+
+    .border-right{
+        border-right: 1px solid #ddd;
+    }
+
+    .home h1,
+    .home h2,
+    .settings h2
+    {
+        font-size: 40px;
+    }
+
+    .card img{
+        width: 80%;
+    }
+
+    .container-small{
+        max-width: 960px;
+    }
+
+    .alliance p{
+        font-size: 18px;
+    }
+
+    .clients .desc-sect{
+        position: relative;
+        width: 200px;
+        top: 120px;
+    }
+
+    .contact p{
+        margin-top: 40px;
+    }
+
+    .contact-inf p{
+        margin-bottom: 40px;
+        margin-top: 0;
+    }
+
+    .form{
+        padding: 60px;
+    }
+
+    .info-1{
+        padding-right: 150px;
+    }
+
+    .contact.contact-inf img {
+        width: 53%;
+    }
+
+    .content-service p{
+        padding-right: 100px;
+    }
+
+    .socials-circle{
+        position: relative;
+    }
+}
