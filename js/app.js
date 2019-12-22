@@ -16,10 +16,12 @@ Effects.prototype.fadeIn = function(top){
     let menu = document.querySelector('.navbar-nav')
     let screenWidth = getScreenWidth()
     if(screenWidth >= 993){
-       if(top>65){
+       if(top>580){
+           menu.classList.add('sticky')
            menu.classList.add('fade-in')
         }else{
             menu.classList.remove('fade-in') 
+            menu.classList.remove('sticky') 
         } 
     }
     
@@ -29,13 +31,19 @@ Effects.prototype.scrolling = function(){
     this.el.addEventListener('scroll', (e)=>{
         let ofY =this.el.pageYOffset
         this.fadeIn(ofY)
-        this.interactionSettings()
+        this.interactionInfra()
     })
 }
 
-Effects.prototype.interactionSettings = function(){
-    let settings = document.querySelector('.settings')
-    let top = settings.getBoundingClientRect().top
+Effects.prototype.interactionInfra = function(){
+    let inf = document.querySelector('#inf')
+    let top = inf.getBoundingClientRect().top
+    
+    let links = document.querySelectorAll('.navbar-nav .nav-link')
+    console.log('top ', inf);
+    if(top>=91){
+        inf.classList.add('link-active')
+    }
     ////console.log('top ', top);
 }
 
@@ -50,24 +58,51 @@ function getScreenWidth(){
     let screenWidth = window.screen.width
     return screenWidth
 }
+  let carRows= document.querySelectorAll('.infrastructure .row-carousel')
+
 Carousel.prototype.move= function(){
+    let count = 0 
+    let move = 0
     this.btnR.addEventListener('click', (e)=>{
-        let carousel = document.querySelector('.wrp-carousel')
+    
+    if(carRows && carRows.length>0){
+        carRows.forEach((carRow, ind)=>{
+        
+            let childrenRow = carRow.children
+            if(childrenRow && childrenRow.length>2) {
+        
+                let elementChildren = document.querySelectorAll('#'+carRow.id+' .'+childrenRow[count].className)
+                
+                let clonedElement = elementChildren[count].cloneNode(true)
+                carRow.append(clonedElement)
+                    count++
+                if(count>= 3){
+                    count=0
+                }
+            
+            }
+        })
+    }
+        
      
-        let left = getLeftCarousel(carousel)
+        let carousel = document.querySelector('.wrp-carousel')
+
+        if(carousel){
+                let left = getLeftCarousel(carousel)
         e.stopPropagation()
-        console.log('left ',left);
-        let move = 0
-        if(left==0  || left <= -250){
-            move = -250
+       
+        if(left<=0  /*|| left <= -250*/){
+            move = move -450
         }
 
         carousel.animate([
           { transform: 'translateX('+left+'px)' }, 
           { transform: 'translateX('+move+'px)' }
         ], { 
-          duration: 500,fill: 'both'
-        });
+          duration: 200,fill: 'both'
+        });  
+        }
+  
     })
 
     this.btnL.addEventListener('click', (e)=>{
@@ -105,18 +140,21 @@ MenuNav.prototype.smooth = function(e){
     const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
 
     e.preventDefault();
+    let links = document.querySelectorAll('.navbar-nav .nav-link')
+    if(links && links.length>0){ links.forEach(link=>link.classList.remove('link-active'))}
+    e.target.classList.add('link-active')
 
     const targetID = e.target.getAttribute("href");
     const targetAnchor = document.querySelector(targetID);
     if (!targetAnchor) return;
-    const originalTop = distanceToTop(targetAnchor)-100;
+    const originalTop = distanceToTop(targetAnchor)-90;
   
     window.scrollBy({ top: originalTop, left: 0, behavior: "smooth" });
   
     const checkIfDone = setInterval(function() {
       const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight +100;
       console.log('atb ',atBottom);
-      if (distanceToTop(targetAnchor)+100 === 0 || atBottom) {
+      if (distanceToTop(targetAnchor)+105 === 0 || atBottom) {
         targetAnchor.tabIndex = "-1";
         targetAnchor.focus();
         window.history.pushState("", "", targetID);

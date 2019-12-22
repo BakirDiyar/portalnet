@@ -60,22 +60,29 @@ body{
 .navbar-nav{
     position: relative;
     top: 92px;
-    width: 300px;
+    width: 100%;
     background: #fff;
     padding: 18px;
     transition: .4s;
 
     box-shadow: -3px 6px 18px -8px #286da1;
-    right: -325px;
+    right: -375px;
 }
 
 .toggleOpen{
-    right: -16px;
+    right: 0px;
 }
 
 .nav-link{
-    color: #0a013a;
-  
+    color: #0a013a; 
+}
+
+.link-active{
+    color: #6243ff;
+}
+
+.navbar-nav .nav-link:hover{
+    color: #6243ff;
 }
 
 .desc-sect{
@@ -86,7 +93,7 @@ body{
 }
 
 .line{
-    height: 4px;
+    height: 2px;
     width: 110px;
     margin-top: 10px;
     margin-right: 7px;
@@ -107,11 +114,21 @@ body{
     background-image: url('https://images.techhive.com/images/article/2015/12/thinkstockphotos-178629045-100609710-large-100632442-large.jpg') ;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 700px;
+    height: 730px;
     font-size: 16px;
     background-position: center;
     background-attachment: fixed;
 }
+
+/*.home{padding: 300px 0;}*/
+.home{overflow: hidden;}
+
+/* .home .container{
+    position: absolute;
+    top: 0;
+    padding-top: 100px;
+    max-width: 100% !important;
+} */
 
 .home .row,
 .settings .row{
@@ -127,6 +144,11 @@ body{
 .home-inf .row{
     justify-content: flex-start;
 }
+
+/*.home video{
+    width: 100%;    
+}*/
+
 
 .home h1,
 .home h2,
@@ -194,7 +216,7 @@ body{
 }
 .wrp-carousel{
     transition: .3s;
-
+    transform: translateX(-300px);
     white-space: nowrap;
     padding-right: 400px;
 }
@@ -470,6 +492,14 @@ footer{
 
     .move-carousel{
         opacity: 1;
+    }
+
+    .wrp-carousel{
+        transform: translateX(0px);
+    }
+
+    .row.cs{
+        padding: 0 50px;
     }
 
     .contact-inf{
