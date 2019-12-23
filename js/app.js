@@ -14,16 +14,36 @@ function MenuNav (el){
 
 Effects.prototype.fadeIn = function(top){
     let menu = document.querySelector('.navbar-nav')
+    let maint = document.querySelector('.maintenance')
+    let maintTop = null
+    if(maint){ maintTop = maint.getBoundingClientRect().top}
+    let cards = document.querySelectorAll('.maintenance .card')
     let screenWidth = getScreenWidth()
+    console.log('top ', maintTop);
     if(screenWidth >= 993){
        if(top>580){
            menu.classList.add('sticky')
            menu.classList.add('fade-in')
+           menu.classList.remove('fade-out')
         }else{
+            menu.classList.add('fade-out') 
             menu.classList.remove('fade-in') 
             menu.classList.remove('sticky') 
         } 
     }
+    if(maint && maintTop!=null){
+        
+        if(maintTop<=320){
+            cards.forEach(m=> m.classList.add('fade-in'))
+            cards.forEach(m=> m.classList.remove('fade-out'))
+        }else{
+            cards.forEach(m=> m.classList.add('fade-out'))
+            cards.forEach(m=> m.classList.remove('fade-in'))
+        }
+        
+     
+    }
+    
     
 }
 
@@ -31,7 +51,7 @@ Effects.prototype.scrolling = function(){
     this.el.addEventListener('scroll', (e)=>{
         let ofY =this.el.pageYOffset
         this.fadeIn(ofY)
-        this.interactionInfra()
+      //  this.interactionInfra()
     })
 }
 
@@ -113,14 +133,14 @@ Carousel.prototype.move= function(){
         console.log('left ',left);
         let move = 0
         if(left<0  || left <= -250){
-            move = left +250
+            move = left +450
         }
 
         carousel.animate([
           { transform: 'translateX('+left+'px)' }, 
           { transform: 'translateX('+move+'px)' }
         ], { 
-          duration: 500,fill: 'both'
+          duration: 200,fill: 'both'
         });
     })
 }
@@ -129,12 +149,25 @@ MenuNav.prototype.toggleMenu = function(){
     this.element.addEventListener('click', (e)=>{
         let screenWidth = getScreenWidth()
         let menu = document.querySelector('.navbar-nav')
-        if(screenWidth<993){
+        if(screenWidth<1200){
             menu.classList.toggle('toggleOpen')
         }
     })
 }
 
+MenuNav.prototype.closeMenu = function(){
+    let screenWidth = getScreenWidth()
+    let menu = document.querySelector('.navbar-nav')
+    if(screenWidth<=1200){
+        this.element.forEach(link =>{
+            link.addEventListener('click', (e)=>{
+                menu.classList.toggle('toggleOpen')
+
+            })
+        })
+    }
+}
+ 
 MenuNav.prototype.smooth = function(e){
 
     const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
@@ -171,11 +204,16 @@ let btnL = document.querySelector('#btn-l')
 let btnR = document.querySelector('#btn-r')
 let btnTogle = document.querySelector('.toggleMenu')
 let navLinks = document.querySelectorAll('.nav-link')
+let navLinksMenu = document.querySelectorAll('.navbar-nav .nav-link')
 let scrollPage = new Effects(window)
-let carousel = new Carousel({left : btnL, right: btnR})
+if(btnL && btnR){
+    let carousel = new Carousel({left : btnL, right: btnR})
+    carousel.move()
+}
 let toggleBtn = new MenuNav(btnTogle)
+let menuPhone = new MenuNav(navLinksMenu)
 let smoothPage = new MenuNav(navLinks)
 toggleBtn.toggleMenu()
+menuPhone.closeMenu()
 smoothPage.scrool()
 scrollPage.scrolling()
-carousel.move()
