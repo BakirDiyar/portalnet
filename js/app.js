@@ -19,7 +19,7 @@ Effects.prototype.fadeIn = function(top){
     if(maint){ maintTop = maint.getBoundingClientRect().top}
     let cards = document.querySelectorAll('.maintenance .card')
     let screenWidth = getScreenWidth()
-    console.log('top ', maintTop);
+  
     if(screenWidth >= 993){
        if(top>580){
            menu.classList.add('sticky')
@@ -39,8 +39,7 @@ Effects.prototype.fadeIn = function(top){
         }else{
             cards.forEach(m=> m.classList.add('fade-out'))
             cards.forEach(m=> m.classList.remove('fade-in'))
-        }
-        
+        } 
      
     }
     
@@ -51,20 +50,31 @@ Effects.prototype.scrolling = function(){
     this.el.addEventListener('scroll', (e)=>{
         let ofY =this.el.pageYOffset
         this.fadeIn(ofY)
-      //  this.interactionInfra()
+        this.interactionTabMenu()
     })
 }
 
-Effects.prototype.interactionInfra = function(){
-    let inf = document.querySelector('#inf')
-    let top = inf.getBoundingClientRect().top
-    
-    let links = document.querySelectorAll('.navbar-nav .nav-link')
-    console.log('top ', inf);
-    if(top>=91){
-        inf.classList.add('link-active')
+Effects.prototype.interactionTabMenu = function(){
+    let sects = [] = document.querySelectorAll('.sect')
+    let links  = [] = document.querySelectorAll('.navbar-nav .nav-link')
+    if(sects &&  sects.length>0){
+        sects.forEach(sect=>{
+            let top  = sect.getBoundingClientRect().top
+            if(top<=80){
+                let id = sect.id 
+                if(links && links.length>0){
+                    links.forEach(link=>{
+                        let href = link.href.split('#')[1]
+                        if('#'+href == '#'+id){
+                            link.classList.add('link-active')
+                        }else{
+                            link.classList.remove('link-active')
+                        }
+                    })
+                }
+            }
+        })
     }
-    ////console.log('top ', top);
 }
 
 function getLeftCarousel(el){
