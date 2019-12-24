@@ -81,8 +81,12 @@ body{
     clip-path: circle(100% at 100% 42%);
 }
 
+.nav-item{
+    margin-bottom: 25px;
+}
 .nav-link{
     color: #0a013a; 
+    font-size: 18px;
 }
 
 .link-active{
@@ -736,8 +740,13 @@ footer{
         clip-path: none
     }
     
+    .nav-link{   
+        font-size: 16px;
+    }
+    
     .navbar .nav-item{
         margin-right: 15px;
+        margin-bottom: 0;
         width: auto;
     }
 }
