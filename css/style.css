@@ -185,6 +185,7 @@ body{
     font-size: 23px;
     text-align: center;
     margin-bottom: 30px;
+    font-weight: 100;
 }
 
 .home h1 a,
@@ -288,7 +289,7 @@ body{
 
 .settings{
     background-image: url('../imgs/group-9@3x.png');
-    height: 450px;
+    height: 580px;
 }
 
 .settings canvas{
@@ -299,6 +300,7 @@ body{
 
 .settings h2{
     text-align: right;
+    font-weight: 100;
 }
 
 .settings p{
@@ -346,6 +348,7 @@ body{
     padding-bottom: 25px;
     color: #4a4a4a;
     width: 90%;
+    font-size: 16px;
 }
 
 .alliance img{
@@ -354,6 +357,7 @@ body{
 
 .alliance p{
     width: 100%;
+    font-size: 16px;
 }
 .clients{
     height: 230px;
@@ -371,7 +375,7 @@ body{
 
 .container-carousel{
     background: #fff;
-    height: 294px;
+    height: 362px;
     padding : 60px;
     box-shadow: 0 0 17px -6px #232323;
     bottom: -351px;
@@ -561,8 +565,8 @@ footer{
 
 @media screen and (min-width:576px){
 
-    .home h1,
-    .home h2,
+    .home h1 a,
+    .home h2 a,
     .settings h2,
     .form h2
     {
@@ -571,6 +575,14 @@ footer{
 }
 
 @media screen and (min-width:768px){
+    
+    .home h1 a,
+    .home h2 a{
+        font-size: 40px;
+        margin-top: 30px;
+    }
+
+
     .settings p{
         width: 25%;
     }
@@ -633,12 +645,18 @@ footer{
         padding: 0 46px;
     }
 
+    .home h1 a,
+    .home h2 a{
+        font-size: 50px;
+        margin-top: 40px;
+    }
+
     .border-right{
         border-right: 1px solid #ddd;
     }
 
     .line{
-        width: 50px;
+        width: 90px;
     }
 
     .home h1,
@@ -658,11 +676,16 @@ footer{
     }
 
     .clients{
-        padding: 40px 0;
+        padding: 0;
+        margin-top: -27px;
     }
 
     .card{
         border-bottom: none
+    }
+
+    .card-text{
+        font-size: 14px;
     }
 
     .card img{
@@ -755,6 +778,6 @@ footer{
 
 @media screen and (min-width:1325px){
     .clients .desc-sect{
-        top: 50px;
+        top: 114px;
     }
 }
