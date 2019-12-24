@@ -179,17 +179,17 @@ body{
 }
 
 
-.home h1,
-.home h2,
+.home h1 a,
+.home h2 a,
 .settings h2{
-    font-size: 20px;
+    font-size: 23px;
     text-align: center;
     margin-bottom: 30px;
 }
 
-.home h1,
-.home h2{
-    font-size: 20px;
+.home h1 a,
+.home h2 a{
+    font-size: 23px;
     margin-bottom: 5px;
 }
 
@@ -304,10 +304,11 @@ body{
 .settings p{
     width: 70%;
     float: right;
+    font-size: 16px;
 }
 
 .settings .more{
-    font-size: 12px;
+    font-size: 14px;
     font-family: 'Roboto';
     color: #06fffb;
     font-weight: 900;
@@ -743,7 +744,7 @@ footer{
     .nav-link{   
         font-size: 16px;
     }
-    
+
     .navbar .nav-item{
         margin-right: 15px;
         margin-bottom: 0;
