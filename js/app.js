@@ -19,8 +19,8 @@ Effects.prototype.fadeIn = function(top){
     if(maint){ maintTop = maint.getBoundingClientRect().top}
     let cards = document.querySelectorAll('.maintenance .card')
     let screenWidth = getScreenWidth()
-  
-    if(screenWidth >= 993){
+    
+    if(!screenWidth){
        if(top>580){
            menu.classList.add('sticky')
            menu.classList.add('fade-in')
@@ -208,8 +208,8 @@ function getLeftCarousel(el){
 }
 
 function getScreenWidth(){
-    let screenWidth = window.screen.width
-    return screenWidth
+  var query = window.matchMedia('(max-width: 1200px)');
+    return query.matches
 }
   let carRows= document.querySelectorAll('.infrastructure .row-carousel')
 
@@ -279,19 +279,20 @@ Carousel.prototype.move= function(){
 }
 
 MenuNav.prototype.toggleMenu = function(){
-    this.element.addEventListener('click', (e)=>{
-        let screenWidth = getScreenWidth()
-        let menu = document.querySelector('.navbar-nav')
-        if(screenWidth<=1200){
-            menu.classList.toggle('toggleOpen')
-        }
-    })
+  this.element.addEventListener('click', (e)=>{
+    
+    let screenWidth = getScreenWidth()
+    let menu = document.querySelector('.navbar-nav')
+    if(screenWidth){
+      menu.classList.toggle('toggleOpen')
+    }
+  })
 }
 
 MenuNav.prototype.closeMenu = function(){
     let screenWidth = getScreenWidth()
     let menu = document.querySelector('.navbar-nav')
-    if(screenWidth<=1200){
+    if(screenWidth<=1336){
         this.element.forEach(link =>{
             link.addEventListener('click', (e)=>{
                 menu.classList.remove('toggleOpen')
