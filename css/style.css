@@ -6,6 +6,12 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+.infrastructure{
+  overflow: hidden;
+}
+
+
+
 ::-webkit-scrollbar:hover {
     display: block;
 }
@@ -209,12 +215,12 @@ body{
 }
 
 .move-carousel{
-    height: 129px;
-    width: 64px;
-    padding: 5px;
+    height: 109px;
+    width: 54px;
+    padding: 0px;
     position: absolute;
     background: rgba(11, 3, 99, 0.623);
-    top: 476px;
+    top: 206px;
     opacity: 0;
     z-index: 9;
     cursor: pointer;
@@ -368,18 +374,40 @@ body{
     width: 100%;
     font-size: 16px;
 }
+
 .clients{
     height: 230px;
   
 }
 
-.clients img{
-    height: 158px;
+.clients .item-carousel-clients{
+    display: inline-block;
+    vertical-align: middle;
     width: auto;
 }
 
-.clients .item-carousel{
-    width: auto;
+.clients img{
+    margin-right: 30px;
+}
+
+.clients .img-pw{
+    width: 261px !important;
+    height: 133px !important;
+}
+
+.clients .img-alm{
+    width: 142px !important;
+    height: 201px !important;
+}
+
+.clients .img-axi{
+    width: 235px !important;
+    height: 90px !important;
+}
+
+.clients .img-cir{
+    width: 196px !important;
+    height: 110px !important;
 }
 
 .container-carousel{
@@ -392,6 +420,27 @@ body{
 
 .clients .row-carousel{
     white-space: nowrap;
+}
+
+.img-show{
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+}
+
+.dots-img{
+    width: 5px;
+    padding: 5px;
+    border-radius: 50%;
+    height: 5px;
+    background-color: #dddddd;
+    margin-right: 15px;
+    position: relative;
+    top: -38px;
+}
+
+.dot-active{
+    background-color: #301fc1;
 }
 
 .contact{
@@ -589,13 +638,13 @@ footer{
     
     .home h1 a,
     .home h2 a{
-        font-size: 40px;
-        margin-top: 30px;
+        font-size: 35px;
+        margin-top: 25px;
     }
 
 
     .settings p{
-        width: 25%;
+        width: 39%;
     }
 
     .unsed-carousel{
@@ -608,14 +657,20 @@ footer{
 
     .move-carousel{
         opacity: 1;
+        top: 270px;
     }
 
     .wrp-carousel{
         transform: translateX(0px);
     }
 
+    .item-carousel{
+        width: 275px;
+        height: 190px;
+    }
+
     .row.cs{
-        padding: 0 50px;
+        padding: 0 60px;
     }
 
     .contact-inf{

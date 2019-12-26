@@ -238,23 +238,23 @@ Carousel.prototype.move= function(){
     }
         
      
-        let carousel = document.querySelector('.wrp-carousel')
+      let carousel = document.querySelector('.wrp-carousel')
 
-        if(carousel){
-                let left = getLeftCarousel(carousel)
-        e.stopPropagation()
-       
-        if(left<=0  /*|| left <= -250*/){
-            move = move -450
-        }
+      if(carousel){
+              let left = getLeftCarousel(carousel)
+      e.stopPropagation()
+      
+      if(left<=0  /*|| left <= -250*/){
+          move = move -250
+      }
 
-        carousel.animate([
-          { transform: 'translateX('+left+'px)' }, 
-          { transform: 'translateX('+move+'px)' }
-        ], { 
-          duration: 200,fill: 'both'
-        });  
-        }
+      carousel.animate([
+        { transform: 'translateX('+left+'px)' }, 
+        { transform: 'translateX('+move+'px)' }
+      ], { 
+        duration: 200,fill: 'both'
+      });  
+      }
   
     })
 
