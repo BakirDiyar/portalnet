@@ -280,8 +280,9 @@ Carousel.prototype.move= function(){
 
 Carousel.prototype.dotClass = function (count){
   let dots = document.querySelectorAll('.dots-img')
+  let pos = (count > 2) ? 0 : count
   dots.forEach(dot=> dot.classList.remove('dot-active'))
-  dots[count>2? 0: count].classList.add('dot-active')
+  dots[pos].classList.add('dot-active')
 }
 
 Carousel.prototype.slideClients = function(){
@@ -292,7 +293,6 @@ Carousel.prototype.slideClients = function(){
   let count = 0
 
   if(numItems>0){
-
     setInterval(()=>{
       let left = getLeftCarousel(carousel)
       if(count<numItems){
