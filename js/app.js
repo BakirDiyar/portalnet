@@ -278,6 +278,44 @@ Carousel.prototype.move= function(){
     })
 }
 
+Carousel.prototype.dotClass = function (count){
+  let dots = document.querySelectorAll('.dots-img')
+  dots.forEach(dot=> dot.classList.remove('dot-active'))
+  dots[count>2? 0: count].classList.add('dot-active')
+}
+
+Carousel.prototype.slideClients = function(){
+  let carousel = document.querySelector('.clients .row-carousel')
+  let move = 0
+  let items = document.querySelectorAll('.item-carousel-clients')
+  let numItems = items.length
+  let count = 0
+
+  if(numItems>0){
+
+    setInterval(()=>{
+      let left = getLeftCarousel(carousel)
+      if(count<numItems){
+        move = move -250
+        
+        this.dotClass(count)
+        carousel.animate([
+          { transform: 'translateX('+left+'px)' }, 
+          { transform: 'translateX('+move+'px)' }
+        ], { 
+          duration: 200,fill: 'both'
+        });  
+          count++
+        }else{
+          count=0
+          left=0
+          move= 250
+          this.dotClass(count)
+        }
+      },1500)
+  }
+}
+
 MenuNav.prototype.toggleMenu = function(){
   this.element.addEventListener('click', (e)=>{
     
@@ -304,34 +342,34 @@ MenuNav.prototype.closeMenu = function(){
  
 MenuNav.prototype.smooth = function(e){
 
-    const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
+  const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
 
-    e.preventDefault();
-    let links = document.querySelectorAll('.navbar-nav .nav-link')
-    if(links && links.length>0){ links.forEach(link=>link.classList.remove('link-active'))}
-    e.target.classList.add('link-active')
+  e.preventDefault();
+  let links = document.querySelectorAll('.navbar-nav .nav-link')
+  if(links && links.length>0){ links.forEach(link=>link.classList.remove('link-active'))}
+  e.target.classList.add('link-active')
 
-    const targetID = e.target.getAttribute("href");
-    const targetAnchor = document.querySelector(targetID);
-    if (!targetAnchor) return;
-    const originalTop = distanceToTop(targetAnchor)-90;
-  
-    window.scrollBy({ top: originalTop, left: 0, behavior: "smooth" });
-  
-    const checkIfDone = setInterval(function() {
-      const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight +100;
-      console.log('atb ',atBottom);
-      if (distanceToTop(targetAnchor)+105 === 0 || atBottom) {
-        targetAnchor.tabIndex = "-1";
-        targetAnchor.focus();
-        window.history.pushState("", "", targetID);
-        clearInterval(checkIfDone);
-      }
-    }, 2000);
+  const targetID = e.target.getAttribute("href");
+  const targetAnchor = document.querySelector(targetID);
+  if (!targetAnchor) return;
+  const originalTop = distanceToTop(targetAnchor)-90;
+
+  window.scrollBy({ top: originalTop, left: 0, behavior: "smooth" });
+
+  const checkIfDone = setInterval(function() {
+    const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight +100;
+    console.log('atb ',atBottom);
+    if (distanceToTop(targetAnchor)+105 === 0 || atBottom) {
+      targetAnchor.tabIndex = "-1";
+      targetAnchor.focus();
+      window.history.pushState("", "", targetID);
+      clearInterval(checkIfDone);
+    }
+  }, 2000);
 }
 
 MenuNav.prototype.scrool = function(){
-    this.element.forEach(el =>el.addEventListener('click', this.smooth))
+  this.element.forEach(el =>el.addEventListener('click', this.smooth))
 }
 
 let btnL = document.querySelector('#btn-l')
@@ -340,17 +378,18 @@ let btnTogle = document.querySelector('.toggleMenu')
 let navLinks = document.querySelectorAll('.nav-link')
 let navLinksMenu = document.querySelectorAll('.navbar-nav .nav-link')
 let settings = document.querySelector('#settings')
+let clients = document.querySelector('.clients')
 if(settings){
-    let part = new Effects(settings)
-    part.particles()
+  let part = new Effects(settings)
+  part.particles()
 }
 
 let scrollPage = new Effects(window)
 if(btnL && btnR){
-    let carousel = new Carousel({left : btnL, right: btnR})
-    carousel.move()
+  let carousel = new Carousel({left : btnL, right: btnR})
+  carousel.move()
 }
-
+let carouselClients = new Carousel(clients)
 let toggleBtn = new MenuNav(btnTogle)
 let menuPhone = new MenuNav(navLinksMenu)
 let smoothPage = new MenuNav(navLinks)
@@ -358,3 +397,4 @@ toggleBtn.toggleMenu()
 menuPhone.closeMenu()
 smoothPage.scrool()
 scrollPage.scrolling()
+carouselClients.slideClients()

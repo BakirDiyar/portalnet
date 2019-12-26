@@ -152,7 +152,10 @@ body{
 }*/
 
 /*.home{padding: 300px 0;}*/
-.home{overflow: hidden;}
+.home{
+    overflow: hidden;
+    top: 100px;
+}
 
 /* .home .container{
     position: absolute;
@@ -495,7 +498,7 @@ label{
     background: none;
     border: none;
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
     border-bottom: 1px solid #6b6a6a;
 }
 
@@ -673,6 +676,10 @@ footer{
         padding: 0 60px;
     }
 
+    .contact p{
+        font-size: 16px;
+    }
+
     .contact-inf{
         padding: 50px 0;
         margin-top: 30px;
@@ -720,6 +727,16 @@ footer{
     .border-right{
         border-right: 1px solid #ddd;
     }
+
+    .move-carousel{
+        top: 390px;
+    }
+
+    .item-carousel{
+        width: 500px;
+        height: 332px;
+    }
+
 
     .line{
         width: 90px;
@@ -807,6 +824,10 @@ footer{
 
     .socials-circle{
         position: relative;
+    }
+
+    footer {
+        font-size: 14px;
     }
 }
 
