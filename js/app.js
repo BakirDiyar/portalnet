@@ -282,7 +282,7 @@ MenuNav.prototype.toggleMenu = function(){
     this.element.addEventListener('click', (e)=>{
         let screenWidth = getScreenWidth()
         let menu = document.querySelector('.navbar-nav')
-        if(screenWidth<1200){
+        if(screenWidth<=1200){
             menu.classList.toggle('toggleOpen')
         }
     })
