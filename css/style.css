@@ -80,7 +80,12 @@ body{
     align-items: center;
     justify-items: center;
     justify-content: center;
+    
+}
+
+.clip{
     clip-path: circle(0.3% at 100% 2%);
+
 }
 
 .toggleOpen{
