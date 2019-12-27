@@ -178,9 +178,7 @@ body{
     justify-items: center;
 }
 
-.home-inf{
-    height: 700px;
-}
+
 
 .home-inf .row{
     justify-content: flex-start;
@@ -558,19 +556,34 @@ footer{
     width: 100%;
 }
 
-.services{
+.inf-page{
     background-image: url('../imgs/rectangle@3x.png');
-    background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 700px;
+    background-attachment: fixed;
+    padding-top: 50px;
 }
 
-.services h2{
-    font-size: 20px;
+.card-inf{
+    margin-bottom: 45px;
 }
 
-.services img{
-    width: 100%;
+.card-inf h2, .card-inf p{
+  
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 700;
+    color: #4a4a4a;
+}
+
+.card-inf p{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.card-inf img{
+    width: 95%;
 }
 
 .img-service{
@@ -689,7 +702,7 @@ footer{
 
     .contact-inf{
         padding: 50px 0;
-        margin-top: 30px;
+        
     }
   
     .service{
@@ -806,6 +819,23 @@ footer{
 
     .contact p{
         margin-top: 40px;
+    }
+
+    .card-inf{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .card-inf .card-content-inf,
+    .card-inf .card-img-inf{
+        width: 50%;
+    }
+
+    .card-inf .card-content-inf{
+        align-items: center;
     }
 
     .contact-inf p{

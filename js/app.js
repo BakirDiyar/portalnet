@@ -4,7 +4,7 @@ function Effects (el){
 }
 
 function Carousel(btns){
-    this.btnL= btns.left 
+    this.btnL= btns.left
     this.btnR= btns.right 
 }
 
@@ -215,66 +215,73 @@ function getLeftCarousel(el){
 Carousel.prototype.move= function(){
     let count = 0 
     let move = 0
-    this.btnR.addEventListener('click', (e)=>{
-    
-    if(carRows && carRows.length>0){
-        carRows.forEach((carRow, ind)=>{
-        
-            let childrenRow = carRow.children
-            if(childrenRow && childrenRow.length>2) {
-        
-                let elementChildren = document.querySelectorAll('#'+carRow.id+' .'+childrenRow[count].className)
-                
-                let clonedElement = elementChildren[count].cloneNode(true)
-                carRow.append(clonedElement)
-                    count++
-                if(count>= 3){
-                    count=0
-                }
+    console.log(this.btnL);
+    if(this.btnL!=null && this.btnR!=null){
+      this.btnR.addEventListener('click', (e)=>{
+          
+          if(carRows && carRows.length>0){
+              carRows.forEach((carRow, ind)=>{
+              
+                  let childrenRow = carRow.children
+                  if(childrenRow && childrenRow.length>2) {
+              
+                      let elementChildren = document.querySelectorAll('#'+carRow.id+' .'+childrenRow[count].className)
+                      
+                      let clonedElement = elementChildren[count].cloneNode(true)
+                      carRow.append(clonedElement)
+                          count++
+                      if(count>= 3){
+                          count=0
+                      }
+                  
+                  }
+              })
+          }
+              
+          
+            let carousel = document.querySelector('.wrp-carousel')
+
+            if(carousel){
+                    let left = getLeftCarousel(carousel)
+            e.stopPropagation()
             
+            if(left<=0  /*|| left <= -250*/){
+                move = move -250
             }
-        })
-    }
+
+            carousel.animate([
+              { transform: 'translateX('+left+'px)' }, 
+              { transform: 'translateX('+move+'px)' }
+            ], { 
+              duration: 200,fill: 'both'
+            });  
+            }
         
-     
-      let carousel = document.querySelector('.wrp-carousel')
+          })
 
-      if(carousel){
+      this.btnL.addEventListener('click', (e)=>{
+              let carousel = document.querySelector('.wrp-carousel')
+          
               let left = getLeftCarousel(carousel)
-      e.stopPropagation()
-      
-      if(left<=0  /*|| left <= -250*/){
-          move = move -250
-      }
+              e.stopPropagation()
+              console.log('left ',left);
+              let move = 0
+              if(left<0  || left <= -250){
+                  move = left +450
+              }
 
-      carousel.animate([
-        { transform: 'translateX('+left+'px)' }, 
-        { transform: 'translateX('+move+'px)' }
-      ], { 
-        duration: 200,fill: 'both'
-      });  
-      }
-  
-    })
+              carousel.animate([
+                { transform: 'translateX('+left+'px)' }, 
+                { transform: 'translateX('+move+'px)' }
+              ], { 
+                duration: 200,fill: 'both'
+              });
+          })
 
-    this.btnL.addEventListener('click', (e)=>{
-        let carousel = document.querySelector('.wrp-carousel')
-     
-        let left = getLeftCarousel(carousel)
-        e.stopPropagation()
-        console.log('left ',left);
-        let move = 0
-        if(left<0  || left <= -250){
-            move = left +450
-        }
+    }
+    
 
-        carousel.animate([
-          { transform: 'translateX('+left+'px)' }, 
-          { transform: 'translateX('+move+'px)' }
-        ], { 
-          duration: 200,fill: 'both'
-        });
-    })
+    
 }
 
 Carousel.prototype.dotClass = function (count){
@@ -388,11 +395,16 @@ if(settings){
 }
 
 let scrollPage = new Effects(window)
-if(btnL && btnR){
+if(btnL!==null && btnR!==null){
   let carousel = new Carousel({left : btnL, right: btnR})
   carousel.move()
 }
-let carouselClients = new Carousel(clients)
+
+if(clients){
+  let carouselClients = new Carousel(clients)
+  carouselClients.slideClients()
+}
+
 let toggleBtn = new MenuNav(btnTogle)
 let menuPhone = new MenuNav(navLinksMenu)
 let smoothPage = new MenuNav(navLinks)
@@ -400,4 +412,4 @@ toggleBtn.toggleMenu()
 menuPhone.closeMenu()
 smoothPage.scrool()
 scrollPage.scrolling()
-carouselClients.slideClients()
+
