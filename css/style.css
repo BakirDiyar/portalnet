@@ -84,11 +84,13 @@ body{
 }
 
 .clip{
+    -webkit-clip-path: circle(0.3% at 100% 2%);
     clip-path: circle(0.3% at 100% 2%);
 
 }
 
 .toggleOpen{
+    -webkit-clip-path: circle(100% at 100% 42%);
     clip-path: circle(100% at 100% 42%);
 }
 
@@ -853,6 +855,7 @@ footer{
         text-align: end;
         flex-direction: row;
         right: -16px;
+        -webkit-clip-path: none;
         clip-path: none
     }
     
