@@ -552,10 +552,6 @@ footer{
 
 /*page2*/
 
-.contact.contact-inf img{
-    width: 100%;
-}
-
 .inf-page{
     background-image: url('../imgs/rectangle@3x.png');
     background-position: center;
@@ -590,39 +586,102 @@ footer{
     padding: 0 10px;
 }
 
-.contact-inf h2{
+.contact-inf img{
+    position: relative;
+    left: -15px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.info-inf{
+    font-size: 12px;
+    line-height: 1px;
+    font-weight: 300;
+}
+
+.info-inf:nth-child(2){
+    line-height: 30px;
+}
+
+.contact-inf-service, .contact-inf-socials{
     border-bottom: 1px solid #fff;
-    padding-bottom: 15px;
+    font-weight: normal;
+    font-size: 12px;
 }
 
-.contact-inf h2:nth-child(4){
-    border-bottom: none;
+.contact-inf-service:nth-child(4){
+    border-bottom: none
 }
-
 
 .link-pages{
-    font-size: 16px;
+    font-size: 14px;
+    color: #fff;
+    font-size:30px;
 }
 
+.link-pages:hover{
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-inf-socials{
+    border-bottom: none;
+    margin-top: 5px;
+}
+
+
 .socials-circle{
-     display: flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     justify-items: center;
 }
 
-.icons:hover{
-    color: #2f8fbb;
-    text-decoration: none;
+/*page 3*/
+.cable-page{
+    padding-top: 50px;
+    background-color:  #1c0b4e ;
 }
 
-.icon-facebook-with-circle{
-    color: #fff;
-    font-size:30px;
+.cable-page h2{
+    font-size: 16px;
+    font-weight: 300;
 }
 
+.cable-page p{
+    font-size: 12px;
+    font-weight: 300;
+}
 
+.row-work{
+    margin-bottom: 80px;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+}
+
+.contact-work h2.t-work{
+    padding-left: 40px;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.work-img{
+    left: 0 !important;
+    margin: 0 auto;
+    width: 65% !important ;
+}
+
+.forms-work p{
+    font-size: 10px;
+}
+
+.form-cable{
+    background-color: #0a013a;
+    margin-bottom: 30px;
+}
+
+/**/
 
 
 /*animations*/
@@ -655,6 +714,7 @@ footer{
     {
         font-size: 30px;
     }
+   
 }
 
 @media screen and (min-width:768px){
@@ -700,9 +760,16 @@ footer{
         font-size: 16px;
     }
 
+    .cable-page h2{
+        font-size: 18px;
+    }
+ 
+    .cable-page p, .forms-work p{
+        font-size: 14px;
+    }
+
     .contact-inf{
-        padding: 50px 0;
-        
+        padding: 20px 0;
     }
   
     .service{
@@ -716,6 +783,7 @@ footer{
     .content-service, .img-service{
         width: 50%;
         margin: -2px;
+        right: ;
     }
 
     .content-service{
@@ -724,12 +792,15 @@ footer{
         justify-items: center;
     }
 
-    .contact.contact-inf img{
-        width: 70%;
+    .contact-inf img{
+        width: 75%;
+        left: 0;
     }
-
+    .contact-inf-service, .info-inf{
+        font-size: 15px;
+    }
     .socials-circle{
-        justify-content: left;
+        text-align: right;
     }
 }
 
@@ -817,6 +888,9 @@ footer{
         padding-bottom: 100px;
     }
 
+    .contact-inf{
+        padding-bottom: 30px;
+    }
     .contact p{
         margin-top: 40px;
     }
@@ -838,6 +912,15 @@ footer{
         align-items: center;
     }
 
+    .card-inf h2{
+        font-size: 24px;
+    }
+
+    .card-inf p{
+        padding-right: 70px;
+        font-size: 18px;
+    }
+
     .contact-inf p{
         margin-bottom: 40px;
         margin-top: 0;
@@ -851,10 +934,7 @@ footer{
         padding-right: 150px;
     }
 
-    .contact.contact-inf img {
-        width: 53%;
-    }
-
+   
     .content-service p{
         padding-right: 100px;
     }
@@ -865,6 +945,43 @@ footer{
 
     footer {
         font-size: 14px;
+    }
+
+    .contact-inf img{
+        width: 75%;
+        left: 20px;
+    }
+    .contact-inf-service, .info-inf{
+        font-size: 17px;
+    }
+
+    .cable-page h2{
+        font-size: 30px;
+    }
+
+    .cable-page p{
+        font-size: 16px;
+    }
+
+    .contact-work h2.t-work{
+        font-size: 40px;
+    }
+
+    .cable-page{
+        height: 655px;
+        padding-top: 50px;
+    }
+
+    .col-form{
+        top: -398px;
+    }
+
+    .form-cable{
+        margin-bottom: 40px;
+    }
+    
+    .form-cable h2{
+        font-size: 24px;
     }
 }
 
@@ -897,6 +1014,23 @@ footer{
         margin-right: 15px;
         margin-bottom: 0;
         width: auto;
+    }
+
+    .home-inf p{
+        font-size: 20px;
+    }
+
+    .card-inf p{
+        padding-right: 90px;
+    }
+
+    .contact-inf img{
+        width: 55%;
+        left: 65px;
+    }
+
+    .res-margin{
+        margin-top: -20px !important;
     }
 }
 
